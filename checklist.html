@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glimmerly Launch Checklist</title>
+<meta name="description" content="Play Store submission checklist for Glimmerly: Early Learning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Nunito:wght@400;600;700&display=swap">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #fffaf1;
+    --surface: #ffffff;
+    --surface-2: #fbf5e8;
+    --border: #ece4d6;
+    --ink: #2f2a3d;
+    --body: #5c5568;
+    --muted: #948d9e;
+    --indigo: #4f45b5;
+    --orange: #f2994a;
+    --gold: #f5b63c;
+    --good: #4a9d5c;
+    --good-bg: #e6f5e9;
+    --warn: #c07a1e;
+    --warn-bg: #fdf1dd;
+    --danger: #c65f5f;
+    --danger-bg: #fbebeb;
+    --code-bg: #f4f0fa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1926; --surface: #242030; --surface-2: #2a2536; --border: #38324a;
+      --ink: #f3f0fa; --body: #c9c2d6; --muted: #948da3;
+      --indigo: #9c93e8; --orange: #f2a968; --gold: #f5c463;
+      --good: #6fce85; --good-bg: #1f3327; --warn: #e0a94d; --warn-bg: #3a2f1a;
+      --danger: #e08a8a; --danger-bg: #3a2323; --code-bg: #2a2536;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--body);
+    font-family: 'Nunito', -apple-system, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    padding: 0 20px 100px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+
+  header { padding: 44px 0 6px; display: flex; align-items: center; gap: 10px; }
+  .star { color: var(--gold); font-size: 24px; line-height: 1; }
+  .brand { font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 20px; color: var(--indigo); letter-spacing: -0.3px; }
+
+  .kicker { text-transform: uppercase; letter-spacing: 1.4px; font-size: 12px; font-weight: 700; color: var(--muted); margin: 28px 0 6px; }
+  h1 { font-family: 'Baloo 2', sans-serif; color: var(--ink); font-size: clamp(26px, 4.5vw, 34px); margin: 0 0 12px; }
+  .intro { max-width: 62ch; margin-bottom: 8px; }
+
+  .progress-bar { height: 8px; border-radius: 5px; background: var(--border); overflow: hidden; margin: 20px 0 4px; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--orange)); border-radius: 5px; transition: width .3s ease; width: 0%; }
+  .progress-label { font-size: 13px; color: var(--muted); margin-bottom: 40px; }
+
+  section { margin-bottom: 46px; }
+  h2 { font-family: 'Baloo 2', sans-serif; color: var(--ink); font-size: 21px; margin: 0 0 4px; display: flex; align-items: center; gap: 10px; }
+  h2 .n { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 8px; background: var(--indigo); color: #fff; font-size: 13px; font-weight: 700; flex-shrink: 0; font-family: 'Nunito', sans-serif; }
+  .section-note { color: var(--muted); font-size: 14px; margin: 0 0 16px; max-width: 62ch; }
+
+  .item { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--border); cursor: pointer; }
+  .item:last-child { border-bottom: none; }
+  .item input { margin-top: 3px; width: 17px; height: 17px; accent-color: var(--indigo); flex-shrink: 0; cursor: pointer; }
+  .item .txt { flex: 1; }
+  .item .txt strong { color: var(--ink); font-weight: 700; }
+  .item.done .txt strong, .item.done .txt p { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--border); }
+  .item p { margin: 2px 0 0; font-size: 14px; max-width: 60ch; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; padding: 2px 8px; border-radius: 6px; margin-left: 8px; vertical-align: middle; }
+  .tag.done { background: var(--good-bg); color: var(--good); }
+  .tag.decision { background: var(--warn-bg); color: var(--warn); }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; margin-bottom: 14px; }
+  .card h3 { font-family: 'Baloo 2', sans-serif; font-size: 15px; color: var(--ink); margin: 0 0 8px; }
+  .card p { margin: 0; font-size: 14.5px; max-width: 62ch; }
+  .card a { color: var(--indigo); font-weight: 700; word-break: break-all; }
+
+  .copybox { position: relative; background: var(--code-bg); border: 1px solid var(--border); border-radius: 12px; padding: 16px 44px 16px 16px; font-size: 13.5px; margin: 10px 0 16px; white-space: pre-wrap; color: var(--ink); font-family: ui-monospace, 'SF Mono', Consolas, monospace; line-height: 1.55; }
+  .copy-btn { position: absolute; top: 10px; right: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 7px; font-size: 11px; font-weight: 700; padding: 4px 8px; color: var(--indigo); cursor: pointer; font-family: 'Nunito', sans-serif; }
+  .copy-btn:hover { background: var(--surface-2); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 10px 0 4px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--muted); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; }
+  td:first-child, th:first-child { padding-left: 0; }
+  .yes { color: var(--good); font-weight: 700; }
+  .no { color: var(--danger); font-weight: 700; }
+
+  .decision-box { background: var(--warn-bg); border: 1px solid #e8cd9a55; border-radius: 14px; padding: 18px 20px; }
+  .decision-box h3 { font-family: 'Baloo 2', sans-serif; color: var(--warn); font-size: 15px; margin: 0 0 8px; }
+  .decision-box p { margin: 0 0 10px; font-size: 14.5px; max-width: 62ch; }
+  .decision-box p:last-child { margin-bottom: 0; }
+
+  .steps { counter-reset: step; list-style: none; padding: 0; margin: 0; }
+  .steps li { counter-increment: step; position: relative; padding: 0 0 20px 38px; margin-left: 4px; border-left: 2px solid var(--border); }
+  .steps li:last-child { border-left-color: transparent; padding-bottom: 0; }
+  .steps li::before { content: counter(step); position: absolute; left: -15px; top: -2px; width: 28px; height: 28px; border-radius: 50%; background: var(--surface); border: 2px solid var(--indigo); color: var(--indigo); font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; font-family: 'Baloo 2', sans-serif; }
+  .steps strong { color: var(--ink); display: block; margin-bottom: 3px; }
+  .steps p { margin: 0; font-size: 14.5px; max-width: 60ch; }
+
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="star">&#10022;</span>
+    <span class="brand">Glimmerly</span>
+  </header>
+
+  <p class="kicker">Play Store Launch Checklist</p>
+  <h1>Getting Glimmerly onto Google Play</h1>
+  <p class="intro">Everything that could be prepared in code and assets is done. What's left lives in the
+    Play Console itself — this page tracks both, and your checkmarks are saved on this device.</p>
+
+  <div class="progress-bar"><div class="progress-fill" id="fill"></div></div>
+  <p class="progress-label" id="progress-label">0 of 0 done</p>
+
+  <section>
+    <h2><span class="n">1</span>Already done <span class="tag done">Code &amp; assets</span></h2>
+    <p class="section-note">Nothing to do here — listed so you know what's already handled.</p>
+
+    <label class="item">
+      <input type="checkbox" data-id="signed" checked disabled>
+      <span class="txt"><strong>Release signing key generated</strong>
+        <p>A real release keystore was created and wired into the Android build. The debug key is no longer used for release builds.</p></span>
+    </label>
+    <label class="item">
+      <input type="checkbox" data-id="aab" checked disabled>
+      <span class="txt"><strong>Signed .aab built</strong>
+        <p><code>app-release.aab</code> — the Android App Bundle Play Console requires for upload.</p></span>
+    </label>
+    <label class="item">
+      <input type="checkbox" data-id="apk" checked disabled>
+      <span class="txt"><strong>Signed .apk built</strong>
+        <p><code>app-release.apk</code> — for installing directly on a device to test outside Play Store.</p></span>
+    </label>
+    <label class="item">
+      <input type="checkbox" data-id="splash" checked disabled>
+      <span class="txt"><strong>Branded splash screen</strong>
+        <p>Shows the "Glimmerly" wordmark.</p></span>
+    </label>
+    <label class="item">
+      <input type="checkbox" data-id="assets" checked disabled>
+      <span class="txt"><strong>Store assets generated</strong>
+        <p>512&times;512 icon, 1024&times;500 feature graphic, and 5 phone screenshots.</p></span>
+    </label>
+    <label class="item">
+      <input type="checkbox" data-id="privacy" checked disabled>
+      <span class="txt"><strong>Privacy policy published, permanently, on a domain you own</strong>
+        <p>Hosted via GitHub Pages on a dedicated public repo — see Section 4 below.</p></span>
+    </label>
+    <label class="item">
+      <input type="checkbox" data-id="icons" checked disabled>
+      <span class="txt"><strong>Math-operator topic icons fixed</strong>
+        <p>The old ➕➖✖️➗ symbols rendered as plain black icons on a real Android device — replaced with icons confirmed to render in full color.</p></span>
+    </label>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>Your turn</h2>
+    <p class="section-note">These are the steps that can only happen in your Google Play Console account. Check them off as you go — this list remembers your progress on this device.</p>
+
+    <label class="item">
+      <input type="checkbox" data-id="backup">
+      <span class="txt"><strong>Back up the release keystore</strong>
+        <p>Copy the keystore file + password (sent separately) into a password manager or other
+          safe storage, off this computer. See Section 8 for why this matters.</p></span>
+    </label>
+    <label class="item">
+      <input type="checkbox" data-id="devaccount">
+      <span class="txt"><strong>Create or confirm your Google Play Developer account</strong>
+        <p>One-time $25 fee at play.google.com/console, if not already registered.</p></span>
+    </label>
+    <label class="item">
+      <input type="checkbox" data-id="listing">
+      <span class="txt"><strong>Fill in the store listing</strong>
+        <p>Descriptions, icon, feature graphic, screenshots, and privacy policy link — Section 4.</p></span>
+    </label>
+    <label class="item">
+      <input type="checkbox" data-id="forms">
+      <span class="txt"><strong>Complete content rating, data safety, ads &amp; target audience</strong>
+        <p>Using the answers in Sections 3, 5, 6, and 7 below.</p></span>
+    </label>
+    <label class="item">
+      <input type="checkbox" data-id="upload">
+      <span class="txt"><strong>Upload the .aab and submit for review</strong>
+        <p><code>app-release.aab</code>, with Play App Signing enabled — Section 9.</p></span>
+    </label>
+  </section>
+
+  <section>
+    <h2><span class="n">3</span>One decision only you can make <span class="tag decision">Decision</span></h2>
+    <div class="decision-box">
+      <h3>Is Glimmerly "primarily directed at children"?</h3>
+      <p>Play Console's content questionnaire asks this directly, and it changes which policies
+        apply (Google's Families program restricts things like ad SDKs and certain APIs).</p>
+      <p><strong>Recommendation:</strong> answer yes — the app is genuinely built for a first
+        grader. This costs nothing here: Glimmerly already has zero ads, zero analytics, zero
+        data collection, so it already satisfies the stricter Families requirements without any
+        further changes.</p>
+      <p>Target age group: <strong>Ages 5&ndash;8</strong> fits first-grade content best.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">4</span>Store listing — copy &amp; paste</h2>
+
+    <div class="card">
+      <h3>App name</h3>
+      <p>Glimmerly: Early Learning</p>
+    </div>
+
+    <div class="card">
+      <h3>Privacy policy URL</h3>
+      <p><a href="https://rishikeshtadaka.github.io/Glimmerly-public/" target="_blank" rel="noopener">https://rishikeshtadaka.github.io/Glimmerly-public/</a></p>
+    </div>
+
+    <div class="card">
+      <h3>App category</h3>
+      <p>Education</p>
+    </div>
+
+    <h3 style="font-family:'Baloo 2',sans-serif;font-size:15px;color:var(--ink);margin:18px 0 4px;">Short description <span style="color:var(--muted);font-weight:400;" id="short-desc-count">(&hellip; / 80 characters)</span></h3>
+    <div class="copybox" id="short-desc">Fun offline learning adventures for first graders — no ads, no internet.<button class="copy-btn" data-copy="short-desc">Copy</button></div>
+
+    <h3 style="font-family:'Baloo 2',sans-serif;font-size:15px;color:var(--ink);margin:18px 0 4px;">Full description <span style="color:var(--muted);font-weight:400;" id="full-desc-count">(&hellip; / 4,000 characters)</span></h3>
+    <div class="copybox" id="full-desc">Glimmerly: Early Learning is a playful, completely offline learning app built for first graders — no internet connection needed, ever.
+
+Made by a parent for their own child, Glimmerly turns everyday first-grade subjects into bite-sized "Learn, then Quiz" adventures your child can explore at their own pace.
+
+WHAT'S INSIDE
+&bull; Math — positions, shapes, numbers, addition, subtraction, multiplication, times tables, and division
+&bull; Reading — rhyming words, sounds, sight words, CVC words, blends, digraphs, contractions, syllables, and more
+&bull; Science — weather, plants, animals &amp; habitats, materials, day/night &amp; seasons
+&bull; General Knowledge — animals, national symbols, the body &amp; senses, community helpers, days &amp; months
+&bull; Marathi &amp; Hindi — letters, numbers, colors, words, and a full barakhadi chart
+&bull; Computer — parts, uses, keyboard &amp; mouse, and computer safety
+&bull; EVS (Environmental Studies) — family &amp; relationships, good habits &amp; safety, food &amp; nutrition, transportation, and festivals of India
+
+HOW IT WORKS
+Every topic starts with a friendly "Let's Learn" screen full of pictures and simple explanations, then a short multiple-choice quiz to practice what was just learned — score 80% or higher and that topic is marked complete. Each quiz ends with a real score and a celebration for a job well done.
+
+BUILT FOR FIRST GRADERS, AND FOR PEACE OF MIND
+&bull; 100% offline — every lesson, sound, and picture ships inside the app
+&bull; No ads, ever
+&bull; No accounts, no sign-in, no personal information collected
+&bull; No data ever leaves the device
+&bull; No in-app purchases
+&bull; Safe for a child to use on their own
+
+Progress (completed topics) is saved right on the device, so nothing needs to be re-done between sessions.
+
+Glimmerly grows over time as new subjects and topics are added — always free, always offline, always ad-free.<button class="copy-btn" data-copy="full-desc">Copy</button></div>
+  </section>
+
+  <section>
+    <h2><span class="n">5</span>Data safety form</h2>
+    <p class="section-note">The whole form collapses to one answer, because nothing is collected:</p>
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr><td>Does your app collect or share any required user data types?</td><td class="no">No</td></tr>
+        <tr><td>Does your app encrypt user data in transit?</td><td><em style="color:var(--muted)">N/A — nothing is transmitted</em></td></tr>
+        <tr><td>Do you provide a way for users to request data deletion?</td><td><em style="color:var(--muted)">N/A — nothing is collected to delete</em></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2><span class="n">6</span>Content rating questionnaire</h2>
+    <p class="section-note">Every question in the IARC questionnaire should be answered "no" / "none" — expect a rating equivalent to <strong>Everyone / PEGI 3</strong>.</p>
+    <table>
+      <thead><tr><th>Topic</th><th>In Glimmerly?</th></tr></thead>
+      <tbody>
+        <tr><td>Violence, fear, or scary content</td><td class="no">None</td></tr>
+        <tr><td>Sexual content or profanity</td><td class="no">None</td></tr>
+        <tr><td>Alcohol, drugs, or gambling references</td><td class="no">None</td></tr>
+        <tr><td>User-generated content or chat</td><td class="no">None</td></tr>
+        <tr><td>Shares user location</td><td class="no">No</td></tr>
+        <tr><td>Unrestricted internet/web browser access</td><td class="no">No</td></tr>
+        <tr><td>In-app purchases or ads</td><td class="no">None</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2><span class="n">7</span>Ads &amp; app access</h2>
+    <div class="card">
+      <h3>Contains ads?</h3>
+      <p>No.</p>
+    </div>
+    <div class="card">
+      <h3>App access</h3>
+      <p>All functionality is available without special access — no login, no restricted areas for the reviewer to unlock.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">8</span>Before you upload — back this up</h2>
+    <div class="decision-box">
+      <h3>The release keystore is irreplaceable</h3>
+      <p>The keystore file and its passwords were sent to you separately. If Glimmerly is ever
+        updated after this first release, the <em>same</em> keystore is needed to sign the update —
+        Play Store rejects an update signed with a different key. Losing it means this app listing
+        can never receive an update again under this same package.</p>
+      <p><strong>Right now, before anything else:</strong> copy the keystore file and its password
+        into a password manager or another safely backed-up location — not only on this computer.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">9</span>Submission steps, in order</h2>
+    <ol class="steps">
+      <li><strong>Create a Google Play Developer account</strong>
+        <p>One-time $25 registration at play.google.com/console, if not already done.</p></li>
+      <li><strong>Create the app</strong>
+        <p>App name "Glimmerly: Early Learning", default language English, category Education, declare it's free.</p></li>
+      <li><strong>Fill in the store listing</strong>
+        <p>Paste the short/full description from Section 4, upload the icon, feature graphic, and
+          screenshots, and add the privacy policy link.</p></li>
+      <li><strong>Complete Content rating, Data safety, Ads, and Target audience</strong>
+        <p>Using the answers in Sections 3, 5, 6, and 7 above.</p></li>
+      <li><strong>Upload the release</strong>
+        <p>Create a production release (or start with an internal testing release to try it first)
+          and upload <code>app-release.aab</code>. Accept Play App Signing when prompted — Google
+          will re-sign the app for distribution using your uploaded key as the "upload key."</p></li>
+      <li><strong>Submit for review</strong>
+        <p>Google typically reviews new apps within a few days to about a week.</p></li>
+    </ol>
+  </section>
+
+  <footer>Glimmerly: Early Learning &middot; com.brightsteps.learning (package id unchanged by the rename) &middot; checklist state is saved only in this browser &middot; <a href="./">privacy policy</a></footer>
+</div>
+
+<script>
+  (function () {
+    var STORAGE_KEY = 'glimmerly-launch-checklist';
+    var boxes = document.querySelectorAll('.item input[type="checkbox"]');
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch (e) {}
+
+    boxes.forEach(function (b) {
+      if (b.disabled) return;
+      if (saved[b.dataset.id]) b.checked = true;
+      b.addEventListener('change', function () {
+        if (!b.disabled) {
+          saved[b.dataset.id] = b.checked;
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch (e) {}
+        }
+        paint();
+      });
+    });
+
+    function paint() {
+      var total = boxes.length, done = 0;
+      boxes.forEach(function (b) {
+        var item = b.closest('.item');
+        if (b.checked) { item.classList.add('done'); done++; }
+        else { item.classList.remove('done'); }
+      });
+      var fill = document.getElementById('fill');
+      var label = document.getElementById('progress-label');
+      var pct = total ? Math.round((done/total)*100) : 0;
+      fill.style.width = pct + '%';
+      label.textContent = done + ' of ' + total + ' done';
+    }
+    paint();
+
+    function countChars(boxId, labelId, max) {
+      var box = document.getElementById(boxId);
+      var label = document.getElementById(labelId);
+      var text = box.textContent.replace('Copy', '').trim();
+      label.textContent = '(' + text.length.toLocaleString() + ' / ' + max.toLocaleString() + ' characters)';
+    }
+    countChars('short-desc', 'short-desc-count', 80);
+    countChars('full-desc', 'full-desc-count', 4000);
+
+    document.querySelectorAll('.copy-btn').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var box = document.getElementById(btn.dataset.copy);
+        var text = box.textContent.replace('Copy', '').trim();
+        try {
+          navigator.clipboard.writeText(text);
+          btn.textContent = 'Copied!';
+          setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+        } catch (err) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>
